@@ -24,7 +24,7 @@ generateEl.addEventListener("click", () => {
     const hasNumber = numbersEl.checked;
     const hasSymbol = symbolsEl.checked;
 
-    resultEL.innerText = generatePassword(
+    resultEL.innerText = newPassword(
         hasLower,
         hasUpper,
         hasNumber,
@@ -50,7 +50,7 @@ clipboardEl.addEventListener("click", () => {
 });
 
 //Generate Password Function 
-function generatePassword(lower, upper, number, symbol, length) {
+    let newPassword = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, lenght)
         //1 Init PW Var
         //2 Filter out unchecked types
         //3 Loop over length call generator function for each type
@@ -66,10 +66,7 @@ function generatePassword(lower, upper, number, symbol, length) {
             (item => Object.values(item)[0]);
 
         //console.log("typesArr: ", typesArr);
-
-        if (typesCount === 0) {
-            return "";
-        }
+        
 
         for (let i = 0; i < length; i += typesCount) {
             typesArr.forEach(type => {
@@ -83,8 +80,7 @@ function generatePassword(lower, upper, number, symbol, length) {
 
         const finalPassword = generatedPassword.slice(0, length);
 
-        return finalPassword;
-    }
+        
 //Generate Functions
 
 function getRandomLower() {
